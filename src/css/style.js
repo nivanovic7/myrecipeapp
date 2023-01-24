@@ -2,16 +2,26 @@ const header = document.querySelector(".header");
 const form = document.querySelector("form");
 const inputSearch = document.querySelector(".search-form__input");
 const buttonSubmit = document.querySelector(".search-form button");
-const recipe = document.querySelector(".recipe");
+const recipeModal = document.querySelector(".recipe__modal");
+const link = document.querySelectorAll("a");
+
+link.forEach((link) => {
+  link.addEventListener("click", function () {
+    header.style.height = "50vh";
+    inputSearch.style.width = "200px";
+    recipeModal.style.visibility = "visible";
+  });
+});
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   header.style.height = "50vh";
+
   inputSearch.style.width = "200px";
-  recipe.style.display = "flex";
 });
 
 inputSearch.addEventListener("focus", function () {
-  header.style.height = "75vh";
+  header.style.height = "100vh";
+
   inputSearch.style.width = "450px";
 });
